@@ -1,20 +1,28 @@
-import React from "react";
-export interface TodoItemProps{
-    title:string;
-    id:number;
-    status:boolean;
+import React, { useState } from "react";
+
+export interface TodoItemProps {
+  title: string;
+  id: number;
+  status: boolean;
 }
 
+function TodoItem({ title, id, status }: TodoItemProps) {
+  const [completed, setCompleted] = useState(status);
 
+  const handleToggle = () => {
+    setCompleted(!completed);
+  };
 
-function TodoItem({title,id ,status}:TodoItemProps){
-    return(
-        <div style={{display:'flex',justifyContent:"center",marginTop:"20px"}}>
-            <div>{title}</div>
-            <div>{`- ${status}`}</div>
-        </div>
-    )
-
+  return (
+    <div
+      style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
+    >
+      <div>{title} --</div>
+      <div onClick={handleToggle} style={{ cursor: "pointer" }}>
+        {completed ? "completed" : "not completed"}
+      </div>
+    </div>
+  );
 }
 
-export {TodoItem}
+export { TodoItem };
