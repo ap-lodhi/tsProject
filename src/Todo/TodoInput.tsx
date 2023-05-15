@@ -5,4 +5,10 @@ interface ITodoInputProps{
 
 function TodoInput({onClick}:ITodoInputProps){
     const [state,setState] =useState<string>("")
+    return(
+        <div>
+
+        </div>
+    )
 }
+export {TodoInput}
